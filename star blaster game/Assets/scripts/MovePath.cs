@@ -36,10 +36,10 @@ public class MovePath : MonoBehaviour
             {
                 waypointIndex =0;
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+           // else
+          //  {
+          //      Destroy(gameObject);
+          // }
 
 
         }

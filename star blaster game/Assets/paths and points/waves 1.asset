@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9d4cf6176c4eee49bab21d270db8894, type: 3}
-  m_Name: waves (0)
+  m_Name: waves 1
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaves
-  MyEnemyWave: {fileID: 1224613608194913841, guid: 34a75b71a1c55c84f9c1adae1385ae0c, type: 3}
-  enemymovespeed: 5
+  MyEnemyWave: {fileID: 1224613608194913841, guid: c184797e9984f0c498d2d2fc21ee8ded, type: 3}
+  enemymovespeed: 3
