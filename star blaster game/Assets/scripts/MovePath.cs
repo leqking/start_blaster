@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class MovePath : MonoBehaviour
 {
-    [SerializeField] EnemyWaves TestEnemy;
-    Transform[] GetPointsWave;
+    [SerializeField] EnemyWaves waveconfig;
+    Transform[] waypoints;
     [SerializeField] float EnemyMoveSpeed;
     int waypointIndex = 0;
 
     void Start()
     {
-       GetPointsWave = TestEnemy.WavePoints();
+        waypoints = waveconfig.WavePoints();
+        transform.position = waveconfig.Getstartingwaypoint().position; 
 
     }
 
@@ -21,18 +22,23 @@ public class MovePath : MonoBehaviour
 
     void FollowWavePath()
     {
-        if(waypointIndex < GetPointsWave.Length)
+        if(waypointIndex < waypoints.Length)
         {
-            Vector3 targetPosition = GetPointsWave[waypointIndex].position;
+            Vector3 targetPosition = waypoints[waypointIndex].position;
             //print(targetPosition);
+            float moveDelta = waveconfig.Getenemymovespeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, EnemyMoveSpeed*Time.deltaTime);
-            if(transform.position == targetPosition)
+            if (transform.position == targetPosition)
             {
                 waypointIndex++;
             }
-            if(waypointIndex >= GetPointsWave.Length)
+            if(waypointIndex >= waypoints.Length)
             {
                 waypointIndex =0;
+            }
+            else
+            {
+                Destroy(gameObject);
             }
 
 
