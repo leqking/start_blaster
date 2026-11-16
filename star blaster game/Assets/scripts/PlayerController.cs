@@ -42,5 +42,15 @@ public class PlayerController : MonoBehaviour
         Camera myCamera = Camera.main;
         minBound = myCamera.ViewportToWorldPoint(new Vector2(0, 0));
         maxBound = myCamera.ViewportToWorldPoint(new Vector2(1, 1));
+
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Coin"))
+        {
+          FindFirstObjectByType<scoremanager>().AddScore(10);
+            Destroy(other.gameObject);
+           
+        }
     }
 }
