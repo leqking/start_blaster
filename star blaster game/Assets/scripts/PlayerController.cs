@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -51,6 +52,19 @@ public class PlayerController : MonoBehaviour
           FindFirstObjectByType<scoremanager>().AddScore(10);
             Destroy(other.gameObject);
            
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            FindFirstObjectByType<scoremanager>()
+            .RemoveScore(1);
+        }
+        if (collision.collider.CompareTag("Enemy BIG"))
+        {
+            FindFirstObjectByType<scoremanager>()
+            .RemoveScore(2);
         }
     }
 }

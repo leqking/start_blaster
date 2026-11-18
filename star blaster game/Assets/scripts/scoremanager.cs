@@ -18,4 +18,13 @@ public class scoremanager : MonoBehaviour
             scoreText.text = "YOU WIN";
         }
     }
+    public void RemoveScore(int amount)
+    {
+        score -= amount;
+        if (score < 0)
+        {
+            score = 0;
+        }
+        scoreText.text = "Score: " + score;
+    }
 }
